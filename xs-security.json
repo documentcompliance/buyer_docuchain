@@ -1,5 +1,5 @@
 {
-  "xsappname": "blockchainstarter",
+  "xsappname": "buyer_docuchain",
   "tenant-mode": "dedicated",
   "description": "Security profile of called application",
   "scopes": [
