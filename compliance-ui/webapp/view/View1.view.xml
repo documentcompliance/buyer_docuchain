@@ -3,7 +3,7 @@
 	<Shell id="shell">
 		<App id="app">
 			<pages>
-				<Page title="Seller X">
+				<Page title="Buyer Y">
 					<content>
 						<SplitContainer initialDetail="detail" initialMaster="master">
 							<masterPages>
@@ -20,7 +20,7 @@
 							<detailPages>
 								<Page id="detail" showHeader="false" icon="sap-icon://action" class="sapUiStdPage">
 									<content>
-										<Panel headerText="Header Details" expandable="true">
+										<Panel headerText="Header Details" expandable="true" expanded="true">
 											<f:GridContainer class="sapUiSmallMargin" inlineBlockLayout="true">
 												<f:layout>
 													<f:GridContainerSettings rowSize="5rem" columnSize="5rem" gap="1rem"/>
@@ -70,8 +70,8 @@
 																		<Text text="{/INVOICE_HEADER/0/VBELN}"/>
 																		<Label text="Invoice Date"/>
 																		<Text text="{/INVOICE_HEADER/0/FKDAT}"/>
-																		<Label text="Customer"/>
-																		<Text text="{/RECEIVER/0/NAME}"/>
+																		<Label text="Vendor"/>
+																		<Text text="{/SENDER/0/NAME}"/>
 																		<Label text="Total Amount"/>
 																		<Text text="{/INVOICE_HEADER/0/NETWR}"/>
 																		<Label text="Tax Amount"/>
