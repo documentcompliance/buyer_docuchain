@@ -22,6 +22,12 @@ modules:
     requires:
       - name: uaa_docuchain
       - name: dest_docuchain
+      - name: compliance-srv_api
+        group: destinations
+        properties:
+          name: buyer_docuchain
+          url: '~{url}'
+          forwardAuthToken: true
 resources:
   - name: docuchainresource
     parameters:
