@@ -13,7 +13,7 @@
 											<items>
 												<ObjectListItem title="{master>key}" type="Active" press="onSelectInvoiceId">
 													<attributes>
-														<ObjectAttribute text="{master>blocktime}"></ObjectAttribute>
+														<ObjectAttribute text="{path: 'master>blocktime', formatter: '.formatter.blocktimeDisplay' }"></ObjectAttribute>
 													</attributes>
 												</ObjectListItem>
 											</items>
