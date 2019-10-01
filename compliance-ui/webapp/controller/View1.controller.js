@@ -8,17 +8,22 @@ sap.ui.define([
 		formatter: formatter,
 		onInit: function () {
 			
-			var keyModel = new sap.ui.model.json.JSONModel();
+			/*var keyModel = new sap.ui.model.json.JSONModel();
 			keyModel.loadData("/docuchain/liststreamkeys", null, false);
-			this.getView().setModel(keyModel, "master");
+			this.getView().setModel(keyModel, "master");*/
 			
 			this.jsonModel = new sap.ui.model.json.JSONModel();
 			this.jsonModel.loadData("/docuchain/liststreamitems", null, false);
 			
 			
-			var itemModel = new sap.ui.model.json.JSONModel();
-			itemModel.setData(this.jsonModel.getData()[0].data.json);
-			this.getView().setModel(itemModel);
+			var masterModel = new sap.ui.model.json.JSONModel();
+			masterModel.setData(this.jsonModel.getData());
+			this.getView().setModel(masterModel, "master");
+			
+			var detailModel = new sap.ui.model.json.JSONModel();
+			detailModel.setData(this.jsonModel.getData()[0].data.json);
+			this.getView().setModel(detailModel);
+			
 		},
 		
 		onSelectInvoiceId: function(oEvent){
@@ -30,7 +35,6 @@ sap.ui.define([
 			});
 			
 			this.getView().getModel().setData(filteredData[0].data.json);
-			
 			
 			
 		}
