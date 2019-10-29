@@ -3,15 +3,27 @@
 	<Shell id="shell">
 		<App id="app">
 			<pages>
-				<Page title="Receiver Perspective">
+				<Page title="Buyer - eDocuments Compliance Cockpit">
+				<f:ShellBar
+					homeIcon="https://i.pinimg.com/originals/c0/0c/9c/c00c9c071d87cfae6751845e8dc79d76.png"
+					showCopilot="true"
+					showSearch="false"
+					showMenuButton="false"
+					showNotifications="true"
+					notificationsNumber="1"
+					showProductSwitcher="true">
+				</f:ShellBar>					
 					<content>
 						<SplitContainer initialDetail="detail" initialMaster="master">
 							<masterPages>
-								<Page id="master" title="Transactions" icon="sap-icon://action" class="sapUiStdPage">
+								<Page id="master" title="Documents" icon="sap-icon://action" class="sapUiStdPage">
 									<content>
 										<List items="{master>/}">
 											<items>
 												<ObjectListItem title="{master>key}" type="Active" press="onSelectInvoiceId">
+													<firstStatus>
+														<ObjectStatus text="Verified" state="Success"/>
+													</firstStatus>													
 													<attributes>
 														<ObjectAttribute text="{path: 'master>blocktime', formatter: '.formatter.blocktimeDisplay' }"></ObjectAttribute>
 													</attributes>

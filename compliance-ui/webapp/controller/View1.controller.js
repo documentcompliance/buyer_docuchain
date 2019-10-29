@@ -15,16 +15,24 @@ sap.ui.define([
 			this.jsonModel = new sap.ui.model.json.JSONModel();
 			this.jsonModel.loadData("/docuchain/liststreamitems", null, false);
 			
-			
 			var masterModel = new sap.ui.model.json.JSONModel();
-			masterModel.setData(this.jsonModel.getData());
+			var documentData = this.jsonModel.getData();
+			documentData = this.getSortedData(this.jsonModel.getData(), "blocktime", false);
+			masterModel.setData(documentData);			
 			this.getView().setModel(masterModel, "master");
+			
+			this.byId("master").setTitle("Documents (" + this.jsonModel.getData().length + ")");
 			
 			var detailModel = new sap.ui.model.json.JSONModel();
 			detailModel.setData(this.jsonModel.getData()[0].data.json);
 			this.getView().setModel(detailModel);
-			
 		},
+		
+		getSortedData: function (data, prop, isAsc) {
+		    return data.sort((a, b) => {
+		        return (a[prop] < b[prop] ? -1 : 1) * (isAsc ? 1 : -1)
+		    });
+		},		
 		
 		onSelectInvoiceId: function(oEvent){
 			var dataToFilter = this.jsonModel.getData();
